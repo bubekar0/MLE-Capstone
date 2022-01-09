@@ -2,17 +2,17 @@
 
 ## Table of Contents
 
- 1. [Domain Background](https://github.com/bubekaro/MLE-Capstone#Domain Background)
- 2. [Problem Statement](https://github.com/bubekaro/MLE-Capstone#Problem Statement)
- 3. [Datasets and Inputs](https://github.com/bubekaro/MLE-Capstone#Datasets and Inputs)
- 4. [Solution Statement](https://github.com/bubekaro/MLE-Capstone#Solution Statement)
- 5. [Benchmark Model](https://github.com/bubekaro/MLE-Capstone#Benchmark Model)
- 6. [Evaluation Metrics](https://github.com/bubekaro/MLE-Capstone#Evaluation Metrics)
- 7. [Project Design](https://github.com/bubekaro/MLE-Capstone#Project Design)
+ 1. [Domain Background](https://github.com/bubekaro/MLE-Capstone#Domain-Background)
+ 2. [Problem Statement](https://github.com/bubekaro/MLE-Capstone#Problem-Statement)
+ 3. [Datasets and Inputs](https://github.com/bubekaro/MLE-Capstone#Datasets-and-Inputs)
+ 4. [Solution Statement](https://github.com/bubekaro/MLE-Capstone#Solution-Statement)
+ 5. [Benchmark Model](https://github.com/bubekaro/MLE-Capstone#Benchmark-Model)
+ 6. [Evaluation Metrics](https://github.com/bubekaro/MLE-Capstone#Evaluation-Metrics)
+ 7. [Project Design](https://github.com/bubekaro/MLE-Capstone#Project-Design)
  8. [Results](https://github.com/bubekaro/MLE-Capstone#Results)
  9. [References](https://github.com/bubekaro/MLE-Capstone#References)
 10. [Dependencies](https://github.com/bubekaro/MLE-Capstone#Dependencies)
-11. [Files Description](https://github.com/bubekaro/MLE-Capstone#Files Description)
+11. [Files Description](https://github.com/bubekaro/MLE-Capstone#Files-Description)
 
 ## Domain Background
 Customer Acquisition is the process of bringing new customers to a business, a key ingredient of business growth. Traditionally, customer acquisition focuses on identifying high-performing channels, such as radio, TV, social media, etc. where potential customers may be reached. Considerations of “who to target” are mixed with “what message or offer would resonate more”. And success is often measured using cost-based metrics such as cost per acquisition, cost per click, and the like. But the goal remains the same: to develop an efficient acquisition strategy that targets true potential customers, rather than marketing to the general population.
