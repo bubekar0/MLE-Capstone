@@ -10,7 +10,6 @@
  6. [Evaluation Metrics](https://github.com/bubekaro/MLE-Capstone#Evaluation Metrics)
  7. [Project Design](https://github.com/bubekaro/MLE-Capstone#Project Design)
  8. [Results](https://github.com/bubekaro/MLE-Capstone#Results)
- 9. [Licensing, Authors, Acknowledgements](https://github.com/bubekaro/MLE-Capstone#ggg)
  9. [References](https://github.com/bubekaro/MLE-Capstone#References)
 10. [Dependencies](https://github.com/bubekaro/MLE-Capstone#Dependencies)
 11. [Files Description](https://github.com/bubekaro/MLE-Capstone#Files Description)
