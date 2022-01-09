@@ -2,16 +2,18 @@
 
 ## Table of Contents
 
- 1. [Domain Background](https://github.com/bubekaro/MLE-Capstone#aaa)
- 2. [Problem Statement](https://github.com/bubekaro/MLE-Capstone#aaa)
- 3. [Datasets and Inputs](https://github.com/bubekaro/MLE-Capstone#aaa)
- 4. [Solution Statement](https://github.com/bubekaro/MLE-Capstone#aaa)
- 5. [Benchmark Model](https://github.com/bubekaro/MLE-Capstone#aaa)
- 6. [Evaluation Metrics](https://github.com/bubekaro/MLE-Capstone#aaa)
- 7. [Project Design](https://github.com/bubekaro/MLE-Capstone#aaa)
- 8. [Results](https://github.com/bubekaro/MLE-Capstone#fff)
+ 1. [Domain Background](https://github.com/bubekaro/MLE-Capstone#Domain Background)
+ 2. [Problem Statement](https://github.com/bubekaro/MLE-Capstone#Problem Statement)
+ 3. [Datasets and Inputs](https://github.com/bubekaro/MLE-Capstone#Datasets and Inputs)
+ 4. [Solution Statement](https://github.com/bubekaro/MLE-Capstone#Solution Statement)
+ 5. [Benchmark Model](https://github.com/bubekaro/MLE-Capstone#Benchmark Model)
+ 6. [Evaluation Metrics](https://github.com/bubekaro/MLE-Capstone#Evaluation Metrics)
+ 7. [Project Design](https://github.com/bubekaro/MLE-Capstone#Project Design)
+ 8. [Results](https://github.com/bubekaro/MLE-Capstone#Results)
  9. [Licensing, Authors, Acknowledgements](https://github.com/bubekaro/MLE-Capstone#ggg)
-10. [References](https://github.com/bubekaro/MLE-Capstone#hhh)
+ 9. [References](https://github.com/bubekaro/MLE-Capstone#References)
+10. [Dependencies](https://github.com/bubekaro/MLE-Capstone#Dependencies)
+11. [Files Description](https://github.com/bubekaro/MLE-Capstone#Files Description)
 
 ## Domain Background
 Customer Acquisition is the process of bringing new customers to a business, a key ingredient of business growth. Traditionally, customer acquisition focuses on identifying high-performing channels, such as radio, TV, social media, etc. where potential customers may be reached. Considerations of “who to target” are mixed with “what message or offer would resonate more”. And success is often measured using cost-based metrics such as cost per acquisition, cost per click, and the like. But the goal remains the same: to develop an efficient acquisition strategy that targets true potential customers, rather than marketing to the general population.
@@ -48,6 +50,16 @@ In spite of the fact that most of the work in this project will occur during the
 The first assumption takes Accuracy out of the list of useful metrics; with an overwhelming amount of non-customers in the data, a model that mostly cries “non-customer” would be highly accurate, yet of little use. This leaves us with Precision, and Recall as potential candidates to evaluate our binary classifier. The second assumption crystalizes the superiority of using Recall over Precision. Yes this is a business-driven decision, but it is a justifiable choice nonetheless. Marketing to a non-customer may mean marginal costs to the company and a minor annoyance to the individual. A missed customer, on the other hand, is bad for business not only because of the lost potential revenue, but also because of the detrimental effect on the quality of the data collection, by giving less relevance to that customer’s segment in future runs. For these reasons, it is legitimate to use Recall as a sensible metric with which to judge the goodness of fit of our binary classifier models, both the benchmark, and the solution.
 
 ## Project Design
+This Project is part of Data Science Nanodegree Program by Udacity in collaboration with Arvato Bertelsmann.
+
+The Project is divided in the following Sections:
+
+1. Part 0 - Get to Know the Data: xxx.
+
+2. Part 1 - Customer Segmentation Report: xxx.
+
+3. Part 2 - Supervised Learning Model: xxx.
+
 For the Customer Segmentation part, two unsupervised learning algorithms will be used, both on the general population, and on the customer files. First, Principal Component Analysis (PCA) will be employed to reduce the dimensionality across features. Then, K-means Clustering will be performed to assign each person to a cluster based on centroid distances. These two algorithms will turn a 891,211 persons x 366 features problem into a more tractable M x N abstraction consisting of M clusters and N principal components.
 
 The “principal components” extracted from the PCA algorithm are linear combinations of the linearly independent features that account for the largest amounts of data dispersion. The resulting eigenvectors and eigenvalues will guide our decision to establish a tolerable level of retained variance in the data. Essentially, with PCA, we will be able to get rid of correlation redundancy in the features, thus trading off dimensionality (number of features), vs variance (information in the data); to the extent that two features are strongly correlated, one of them makes the other redundant and thus fairly superfluous.
@@ -59,60 +71,6 @@ After reducing the dimensionality within acceptable loss of variance, and after 
 It is envisioned that throughout these procedures, several opportunities will arise where decisions in the guise of compromises or trade offs will have to be made affecting the performance of the eventual solution. How to clean or complete missing data, which features to drop, how to scale, how many principal components, how many clusters, and other tunable parameters of the different models. These are opportunities to tune our solution that will be revisited with the aim of improving performance using the appropriate metrics dictated by the data as well as the models.
 
 ## Results
-
-## References
-
-## Dependencies
-* [Python 3*](https://www.python.org/)
-* [NumPy](http://www.numpy.org/)
-* [Pandas](http://pandas.pydata.org/)
-* [matplotlib](https://matplotlib.org/)
-* [Sciki-Learn](https://scikit-learn.org/stable/)
-
-
-## Datasets and Inputs
-This Project is part of Data Science Nanodegree Program by Udacity in collaboration with Arvato Bertelsmann.
-
-The Project is divided in the following Sections:
-
-1. Part 0 - Get to Know the Data: xxx.
-
-2. Part 1 - Customer Segmentation Report: xxx.
-
-3. Part 2 - Supervised Learning Model: xxx.
-
-## Data files
-
-* `azdias`: demographics data for the general population of Germany; 
-               891 211 persons (rows) x 366 features.
-
-* `customers`: demographics data for customers of a mail-order company;
-                191 652 persons (rows) x 369 features.
-
-* `mailout_train`: Demographics data for individuals who were targets of a marketing campaign;
-                   42982 persons and 367 features including response of people.
-
-* `mailout_test`: Demographics data for individuals who were targets of a marketing campaign;
-                  42833 persons and 366 features.
-
-There are two more files which describes the attributes and its values. But the main datasets files are not available because of privacy of Arvato comapny's data.                  
-
-## Project Motivation
-
-Blah blah to fill in later
-
-## File Description
-
-  • `Capstone Arvato.ipynb` : All parts of the capstone project.
-
-## Results
-The main findings of the code can be found at this Customer Segemnetaion Report available [here.](https://uozon.com/)
-
-## Licensing, Authors, Acknowledgements
-
-  * [Udacity](https://www.udacity.com/) Capstone Project component to the MLE Nanodegree
-  * [Arvato Bertelsmann](https://www.bertelsmann.com/divisions/arvato/#st-1) Data
-
 
 ## References
 Jonathan Kropko, Ben Goodrich, Andrew Gelman & Jennifer Hill (October 4, 2013), page 2. ;
@@ -158,3 +116,14 @@ Retrieved from https://www.datacamp.com/community/tutorials/xgboost-in-python
 - Complete Machine Learning Guide to Parameter Tuning in Gradient Boosting (GBM) in Python;
 Aarshay Jain (February 21, 2016);
 Retrieved from https://www.analyticsvidhya.com/blog/2016/02/complete-guide-parameter-tuning-gradient-boosting-gbm-python/
+
+## Dependencies
+* [Python 3*](https://www.python.org/)
+* [NumPy](http://www.numpy.org/)
+* [Pandas](http://pandas.pydata.org/)
+* [matplotlib](https://matplotlib.org/)
+* [Sciki-Learn](https://scikit-learn.org/stable/)
+
+## Files Description
+
+  • `Capstone Arvato.ipynb` : All parts of the capstone project.
