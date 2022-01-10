@@ -2,29 +2,40 @@
 
 ## Table of Contents
 
- 1. [Domain Background](https://github.com/bubekaro/MLE-Capstone#Domain-Background)
+ 1. [Project Definition](https://github.com/bubekaro/MLE-Capstone#Project-Definition)
+
+
  2. [Problem Statement](https://github.com/bubekaro/MLE-Capstone#Problem-Statement)
- 3. [Datasets and Inputs](https://github.com/bubekaro/MLE-Capstone#Datasets-and-Inputs)
- 4. [Solution Statement](https://github.com/bubekaro/MLE-Capstone#Solution-Statement)
- 5. [Benchmark Model](https://github.com/bubekaro/MLE-Capstone#Benchmark-Model)
- 6. [Evaluation Metrics](https://github.com/bubekaro/MLE-Capstone#Evaluation-Metrics)
- 7. [Project Design](https://github.com/bubekaro/MLE-Capstone#Project-Design)
+ 3. [Metrics](https://github.com/bubekaro/MLE-Capstone#Metrics)
+ 4. [Data Exploration](https://github.com/bubekaro/MLE-Capstone#Data-Exploration)
+ 5. [Data Visualization](https://github.com/bubekaro/MLE-Capstone#Data-Visualization)
+ 6. [Data Preprocessing](https://github.com/bubekaro/MLE-Capstone#Data-Preprocessing)
+ 7. [Implementation](https://github.com/bubekaro/MLE-Capstone#Implementation)
+ 8. [Refinement](https://github.com/bubekaro/MLE-Capstone#Refinement)
+ 9. [Model Evaluation and Validation](https://github.com/bubekaro/MLE-Capstone#Model-Evaluation-and-Validation)
+10. [Justification](https://github.com/bubekaro/MLE-Capstone#Justification)
+11. [Reflection](https://github.com/bubekaro/MLE-Capstone#Reflection)
+12. [Improvement](https://github.com/bubekaro/MLE-Capstone#Improvement)
+13. [Write-up](https://github.com/bubekaro/MLE-Capstone#Write-up)
+
  8. [Results](https://github.com/bubekaro/MLE-Capstone#Results)
  9. [References](https://github.com/bubekaro/MLE-Capstone#References)
 10. [Dependencies](https://github.com/bubekaro/MLE-Capstone#Dependencies)
 11. [Files Description](https://github.com/bubekaro/MLE-Capstone#Files-Description)
 
-## Domain Background
-Customer Acquisition is the process of bringing new customers to a business, a key ingredient of business growth. Traditionally, customer acquisition focuses on identifying high-performing channels, such as radio, TV, social media, etc. where potential customers may be reached. Considerations of “who to target” are mixed with “what message or offer would resonate more”. And success is often measured using cost-based metrics such as cost per acquisition, cost per click, and the like. But the goal remains the same: to develop an efficient acquisition strategy that targets true potential customers, rather than marketing to the general population.
+## Project Definition
+Customer Acquisition is the process of bringing new customers to a business, a key ingredient of business growth. Traditionally, customer acquisition focuses on identifying high-performing channels, such as radio, TV, social media, etc. where potential customers may be reached. Considerations of “who to target” are mixed with “what message or offer would resonate more”. And success is often measured using cost-based metrics such as cost per acquisition, cost per click, and the like. But the goal remains the same: to develop an efficient acquisition strategy that targets true potential customers, rather than marketing to the general population. Machine Learning (ML) provides a unique approach to the problem of targeted marketing in that instead of relying on instinctive heuristics that make marketing an ‘art’, it leverages on insights gleaned from a mathematical analysis of the customer’s data, making marketing a ‘science’. Machine Learning can help traditional marketing strategies in at least two ways: First, it can reveal latent or nuanced characteristics of the population that may make them ideal for targeted marketing campaigns, regardless of the channels used to reach them. Second, it can be used to refine heuristic strategies by quantifying their assumptions and measuring their validity; hence, making such customer acquisition strategies more efficient.
 
-Machine Learning (ML) provides a unique approach to the problem of targeted marketing in that instead of relying on instinctive heuristics that make marketing an ‘art’, it leverages on insights gleaned from a mathematical analysis of the customer’s data, making marketing a ‘science’. Machine Learning can help traditional marketing strategies in at least two ways: First, it can reveal latent or nuanced characteristics of the population that may make them ideal for targeted marketing campaigns, regardless of the channels used to reach them. Second, it can be used to refine heuristic strategies by quantifying their assumptions and measuring their validity; hence, making such customer acquisition strategies more efficient.
+The problem that this project aims to address is the question of whether the customer acquisition strategy of a Mail-Order company can be made more efficient using Machine Learning techniques. At our disposal is a vast amount of demographic data of the target general population, as well as data from some of the firm's customers. Additionally, the results of a recent mailout campaign are provided. We explore a couple of ML techniques on these datasets: First, we use visualization tools to gain some insight as to how the features of the general population and the customers differ, i.e., their distributions. Second, we implement an unsupervised learning ML technique, namely, Customer Segmentation through Principal Component Analysis and K-Means Clustering to examine what it can reveal about the characteristics of the customers. And third, we fit a collection of binary classifier models to the mailout campaign data, we compare the models and tune one of them as a supervised learning ML approach. Finally, we test the goodness of the tuned fit model by evaluating how well it predicts which individuals are indeed customers.
 
-## Problem Statement
-Can the customer acquisition strategy of a Mail-Order company be made more efficient using Machine Learning? Using demographic data of the general population and the customers, as well as results of a recent mailout campaign, can we use Machine Learning techniques to let the data speak directly and tell us what constitutes a likely customer? We want to conceive a targeted advertising campaign based on recommendations from the data itself, as exposed through Machine Learning techniques in order to achieve a higher hit-ratio in marketing.
+Our goal is to conceive a targeted advertising campaign based on recommendations from the data itself, as exposed through Machine Learning techniques in order to achieve a higher hit-ratio in marketing.
 
-A trivial solution would be to put the mailout campaign data through a binary classifier such as a Linear Learner, hoping that the mailout sample data is representative of the general population; A more sensible approach, free of assumptions about the data, would take into consideration the entirety of the data available. That is the aim of this project. First, we’ll sift through the general population and customer datasets using unsupervised ML tools to learn who is a likely customer. Then, we’ll use these same tools on the mailout training dataset, together with a binary classifier (supervised learning) to validate and refine our model by measuring its predictive power. Finally, we’ll submit our model predictions on the test data to a Kaggle competition for final assessment.
+- Metrics
+The job of a classifier consists of discriminating between classes of data, in our case, customers from non-customers. In the supervised learning part of this project, the mailout data used in the classification exercise happens to be highly imbalanced, i.e., there are hardly any customers in it. This renders some of the usual metrics, such as accuracy, practically useless. Indeed, with such high imbalance, any model that screams "non-customer" for every observation, would still be highly accurate, but of little use. To train according to these demands, we don't want to optimize for accuracy only. Instead, we want to optimize for a metric that can help us decrease false positives and false negatives. But this being a marketing problem, we would be more inclined to tolerate false positives (marketing to non customers at the risk of annoying them), rather than false negatives (missing out on true customers and hence potential business growth). In other words, precision is another metric that does not help us much.
 
-## Datasets and Inputs
+Besides accuracy and precission, there is also recall, and the F1 score. With a direct mail campaign, we want revenue maximization; we want to leave off as few actual customers from our campaign as possible! The F1 Score is the weighted average of precision and recall; it takes both false positives and false negatives into account. With uneven data, the F1 score is more useful than accuracy, but it still incorporates precission. There is a better alternative metric for our purposes, namely the ROC AUC, Receiver Operating Characteristic - Area Under Curve. The ROC-AUC score provides us with information about how well a model is performing its job of separating classes, in our case distinguishing customers from non customers.
+
+## Data Exploration
 The givens in this problem are three datasets in four files:
 1. Udacity_AZDIAS_052018.csv: Demographics data for the general population of Germany; 891 211 persons (rows) x 366 features (columns).
 2. Udacity_CUSTOMERS_052018.csv: Demographics data for customers of a mail-order company; 191 652 persons (rows) x 369 features (columns).
@@ -35,20 +46,27 @@ We’ll use the first two files to establish how customers are similar to or dif
 
 The “CUSTOMERS” file contains three extra columns (‘CUSTOMER_GROUP’, ‘ONLINE_PURCHASE’, and ‘PRODUCT_GROUP’), with information about the customers. The original “MAILOUT” file, before splitting into “TRAIN” and “TEST” included one additional column, ‘RESPONSE’, to indicate if a recipient became a customer. For the “TRAIN” subset, this column has been retained, but in the “TEST” subset it has been removed; it is against this withheld column that our final predictions will be assessed in the Kaggle competition. The other columns are the same between the files. Additionally, two Excel spreadsheets: ./DIAS Information Levels - Attributes 2017.xlsx, and ./DIAS Attributes - Values 2017.xlsx provide a list of attributes and descriptions, as well as a detailed mapping of data values for each feature in alphabetical order.
 
-## Solution Statement
+## Data Visualization
+## Data Preprocessing
+
+## Implementation
 Any solution would require a Customer Segmentation Report, and a Supervised Learning Model. Before doing any analysis, however, the data will be examined, cleaned, visualized to identify promising features, and wrangled enough to make it amenable to analysis with ML models.
 
 The Customer Segmentation part will be preceded by a reduction in dimensionality using Principal Component Analysis (PCA). The actual segmentation will be carried out with a K-means Clustering algorithm. These three steps — namely, data wrangling, PCA and K-Means will be implemented on the general population and on the customer datasets. These steps should facilitate a meaningful comparison between both datasets, enabling us to make educated guesses as to how the customers could be spotted within the general population. After this, it should be a straightforward task to apply the same steps to the “MAILOUT_TRAIN” dataset, and then to train a binary classification model on the result, using the provided ‘RESPONSE’ labels.
 
-## Benchmark Model
+## Refinement
 As a benchmark model, the combination of data wrangling, PCA, K-Means and a Linear Learner binary classifier will be used. This benchmark should suffice as a preliminary simplistic solution that trains fast and can provide a baseline upon which other solutions could be gauged. Other solutions being variations of the supervised learning piece, e.g., XGBoost, PyTorch MLPs, etc.
 
-## Evaluation Metrics
+## Model Evaluation and Validation
 In spite of the fact that most of the work in this project will occur during the data wrangling and customer segmentation parts, it is the results of the binary classifier that are judged in the end. Without looking at the data, it is difficult to speak intelligently about appropriate metrics. However, we can venture to make two simplifying assumptions: (1) the mailout data is imbalanced, i.e., it is likely to contain less customers than non-customers, and (2) false positives don’t hurt the business as much as false negatives.
 
 The first assumption takes Accuracy out of the list of useful metrics; with an overwhelming amount of non-customers in the data, a model that mostly cries “non-customer” would be highly accurate, yet of little use. This leaves us with Precision, and Recall as potential candidates to evaluate our binary classifier. The second assumption crystalizes the superiority of using Recall over Precision. Yes this is a business-driven decision, but it is a justifiable choice nonetheless. Marketing to a non-customer may mean marginal costs to the company and a minor annoyance to the individual. A missed customer, on the other hand, is bad for business not only because of the lost potential revenue, but also because of the detrimental effect on the quality of the data collection, by giving less relevance to that customer’s segment in future runs. For these reasons, it is legitimate to use Recall as a sensible metric with which to judge the goodness of fit of our binary classifier models, both the benchmark, and the solution.
 
-## Project Design
+## Justification
+## Reflection
+## Improvement
+## Write-up
+## Justification
 This Project is part of Data Science Nanodegree Program by Udacity in collaboration with Arvato Bertelsmann.
 
 The Project is divided in the following Sections:
