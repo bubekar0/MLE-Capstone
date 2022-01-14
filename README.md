@@ -32,4 +32,4 @@ During the Data Exploration and Preprocessing part of the project, it was ascert
 
 ## Acknowledgements
 * [Udacity](https://www.udacity.com) : Machine Learning Nanodegree - Capstone Project.
-* [https://www.bertelsmann.com/divisions/arvato/#st-1](Arvato bertelsmann) : Datasets.
+* [Arvato bertelsmann](https://www.bertelsmann.com/divisions/arvato/#st-1) : Datasets.
