@@ -152,16 +152,22 @@ def mean_or_not(col, xrange):
     imputed.fillna(imputed.isnull()*np.random.choice(imputed.value_counts().index, len(imputed), \
             p=[x for x in imputed.value_counts().values/imputed.value_counts().values.sum()]), inplace=True)
 
-    f = plt.figure(figsize=(FIG_WIDTH, FIG_HEIGHT/2))
+    f = plt.figure(figsize=(1.2*FIG_WIDTH, FIG_HEIGHT))
     ax3 = f.add_subplot(133)
     _ = sns.distplot(imputed, hist=False, kde_kws={'clip': xrange})
-    _ = ax3.set_title("IMPUTED")
+    _ = ax3.set_title("IMPUTED", fontsize=15)
+    _ = ax3.set_xlabel(col.name, fontsize=15)
+    _ = ax3.set_ylabel('Density', fontsize=15)
     ax1 = f.add_subplot(131, sharex=ax3, sharey=ax3)
     _ = sns.distplot(withnan, hist=False, kde_kws={'clip': xrange})
-    _ = ax1.set_title("RAW DATA")
+    _ = ax1.set_title("RAW DATA", fontsize=15)
+    _ = ax1.set_xlabel(col.name, fontsize=15)
+    _ = ax1.set_ylabel('Density', fontsize=15)
     ax2 = f.add_subplot(132, sharex=ax3, sharey=ax3)
     _ = sns.distplot(meaned, hist=False, kde_kws={'clip': xrange})
-    _ = ax2.set_title("MEANED")
+    _ = ax2.set_title("MEANED", fontsize=15)
+    _ = ax2.set_xlabel(col.name, fontsize=15)
+    _ = ax2.set_ylabel('Density', fontsize=15)
     _ = plt.show()
 
 def numericals(df):

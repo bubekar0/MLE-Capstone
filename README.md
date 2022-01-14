@@ -13,7 +13,7 @@ This project was chosen mainly for two reasons. First, because it tackles a real
 
 More concretely, the project consists of analyzing demographics data for customers of a mail-order sales company in Germany, comparing it against demographics information for the general population of that country. Aside from the customer and general population datasets, a separate pair of datasets was made available for training and testing a classifier; these datasets were obtained from a recent mailout campaign and have the same type of data features and quality.
 
-The sequential flow of the project is as follows: First, the customer and general population datasets are preprocessed and prepared to be used in unsupervised learning.  Then, customer segmentation is carried out in order to spot customers in the population, or rather, in order to identify which features of the data find overrepresentation with customers, and which are underrepresented. After this, the datasets of the recent marketing campaign are used to model and to predict which individuals are most likely to become customers for the company. Finally, the predictions are tested and scored in a [kaggle](https://www.kaggle.com/c/udacity-arvato-identify-customers/submissions) competition.
+The sequential flow of the project is as follows: First, the customer and general population datasets are preprocessed and visualized in preparation to be used with unsupervised learning models. Customer segmentation is then carried out in order to spot customers in the population, or rather, in order to identify which features of the data find overrepresentation with customers, and which are underrepresented. After this, the datasets of the recent marketing campaign are used to model and to predict which individuals are most likely to become customers for the company. Finally, the predictions are tested and scored in a [Kaggle Competition](https://www.kaggle.com/c/udacity-arvato-identify-customers/submissions).
 
 ## Libraries
 * [Python 3.*](https://docs.python.org/3/)
@@ -21,12 +21,15 @@ The sequential flow of the project is as follows: First, the customer and genera
 * [Pandas](http://pandas.pydata.org/)
 * [matplotlib](https://matplotlib.org/)
 * [seaborn](https://seaborn.pydata.org/)
-* [Sciki-Learn](https://scikit-learn.org/stable/)
+* [Scikit-Learn](https://scikit-learn.org/stable/)
 * [Jupyter Widgets](https://ipywidgets.readthedocs.io/en/latest/)
 
 ## Files
 • `Capstone Arvato.ipynb` : All parts of the capstone project.
 
 ## Results
+During the Data Exploration and Preprocessing part of the project, it was ascertained through visualizations of the datasets' distributions, that the customers of the mail-order company tended to be older, sedentary, of versatile consumption type, heavily into saving or investing money, suburban, with multiple cars in the household, mostly top earners of advanced age, and with a slightly heavier male presence. After implementing the unsupervised piece of this project, similar conclusions were drawn, with some degree of measurement attached to them. Among other things, customers were found to be mostly single, high income earners, or top earners of advanced age, interested in investing, low in mobility, mostly male, dominant and feisty. The supervised learning part of the project consisted of choosing a metric for testing a few classifiers in order to select and fine-tune one of them to generate predictions. Given the nature of the problem (marketing) and the imbalance of the data, the ROC AUC metric was chosen. Using ROC AUC the GradientBosstingClassifier was selected and seven of its parameter fine-tuned, namely, the number of trees (n_estimators), tree depth (max_depth), learning rate (learning_rate), as well as max_features, subsample, min_samples_leaf, and min_samples_split. Predictions from the fine-tuned Gradient Boost classifier were submitted to the Kaggle competition to achieve a score of 79.61%. Further attempts at fine tuning and combining PCA with classification failed to improve on the score.
 
 ## Acknowledgements
+[Udacity](https://www.udacity.com) : Machine Learning Nanodegree - Capstone Project.
+[https://www.bertelsmann.com/divisions/arvato/#st-1](Arvato bertelsmann) : Datasets.
