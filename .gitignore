@@ -2,3 +2,5 @@
 .DS_Store
 .gitignore
 Udacity_*
+__pycache__
+DIAS*

@@ -25,7 +25,12 @@ The sequential flow of the project is as follows: First, the customer and genera
 * [Jupyter Widgets](https://ipywidgets.readthedocs.io/en/latest/)
 
 ## Files
-• `Capstone Arvato.ipynb` : All parts of the capstone project.
+• `images` : Folder containing all the figures included in the write-up.
+• `predictions` : Folder containing a few of the submissions made at the Kaggle cmptetition in the form of CSV files.
+• `Capstone Arvato.ipynb` : All parts of the capstone project in an Interactive Python Jupyter Notebook.
+• `Capstone Proposal.pdf` : Write-up to propose taking on this project.
+• `data_exploration.py` : Assorted collection of Python routines for the Data Exploration and Preprocessing piece of the project.
+
 
 ## Results
 During the Data Exploration and Preprocessing part of the project, it was ascertained through visualizations of the datasets' distributions, that the customers of the mail-order company tended to be older, sedentary, of versatile consumption type, heavily into saving or investing money, suburban, with multiple cars in the household, mostly top earners of advanced age, and with a slightly heavier male presence. After implementing the unsupervised piece of this project, similar conclusions were drawn, with some degree of measurement attached to them. Among other things, customers were found to be mostly single, high income earners, or top earners of advanced age, interested in investing, low in mobility, mostly male, dominant and feisty. The supervised learning part of the project consisted of choosing a metric for testing a few classifiers in order to select and fine-tune one of them to generate predictions. Given the nature of the problem (marketing) and the imbalance of the data, the ROC AUC metric was chosen. Using ROC AUC the GradientBosstingClassifier was selected and seven of its parameter fine-tuned, namely, the number of trees (n_estimators), tree depth (max_depth), learning rate (learning_rate), as well as max_features, subsample, min_samples_leaf, and min_samples_split. Predictions from the fine-tuned Gradient Boost classifier were submitted to the Kaggle competition to achieve a score of 79.61%. Further attempts at fine tuning and combining PCA with classification failed to improve on the score.
