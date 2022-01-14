@@ -25,11 +25,11 @@ The sequential flow of the project is as follows: First, the customer and genera
 * [Jupyter Widgets](https://ipywidgets.readthedocs.io/en/latest/)
 
 ## Files
-• `images` : Folder containing all the figures included in the write-up.
-• `predictions` : Folder containing a few of the submissions made at the Kaggle cmptetition in the form of CSV files.
-• `Capstone Arvato.ipynb` : All parts of the capstone project in an Interactive Python Jupyter Notebook.
-• `Capstone Proposal.pdf` : Write-up to propose taking on this project.
-• `data_exploration.py` : Assorted collection of Python routines for the Data Exploration and Preprocessing piece of the project.
+* `images` : Folder containing all the figures included in the write-up.
+* `predictions` : Folder containing a few of the submissions made at the Kaggle cmptetition in the form of CSV files.
+* `Capstone Arvato.ipynb` : All parts of the capstone project in an Interactive Python Jupyter Notebook.
+* `Capstone Proposal.pdf` : Write-up to propose taking on this project.
+* `data_exploration.py` : Assorted collection of Python routines for the Data Exploration and Preprocessing piece of the project.
 
 
 ## Results
