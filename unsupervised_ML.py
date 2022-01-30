@@ -208,7 +208,7 @@ def clusters_heatmap(ccoords, comps, shades):
     _ = plt.xticks(fontsize=1.5*TICKS_SIZE)
     _ = plt.yticks(fontsize=1.5*TICKS_SIZE)
     _ = sns.heatmap(ccoords.iloc[3:4,:comps], cmap = 'Greens', vmin=shades[6], vmax=shades[7], cbar=False)
-    _ = plt.savefig('images/Figure 10 — Cluster PCA Components Heatmap.jpg', format='jpeg', dpi=1200, bbox_inches='tight')
+    #_ = plt.savefig('images/Figure 10 — Cluster PCA Components Heatmap.jpg', format='jpeg', dpi=1200, bbox_inches='tight')
 
 def cluster_PCA_features(cluster_id, pcas, cc_coords, cols, cutoff=5):
     '''Produce the main features linked with the top PCA Components associated with a Cluster.
