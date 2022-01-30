@@ -56,10 +56,18 @@ def show_pca(coeffs, given_PCA, cols, feat_count=10):
     ax2 = f.add_subplot(212)
     _ = plt.title("Cumulative Retained Variance", fontsize=LABEL_SIZE)
     _ = plt.xlabel('PCA Components', fontsize=LABEL_SIZE)
-    _ = plt.ylabel('Retained variance', fontsize=LABEL_SIZE)
+    _ = plt.ylabel('Retained Variance', fontsize=LABEL_SIZE)
     _ = plt.xticks(fontsize=TICKS_SIZE)
     _ = plt.yticks(fontsize=TICKS_SIZE)
+    _ = plt.yticks(np.arange(0, 1.1, .1), fontsize=TICKS_SIZE)
     _ = plt.plot(np.cumsum(coeffs.explained_variance_ratio_))
+    _ = ax2.set_xticks([195], minor=True)
+    _ = ax2.xaxis.grid(True, which='minor', linewidth=3)
+    _ = ax2.set_yticks([.08, .9], minor=True)
+    _ = ax2.yaxis.grid(True, which='minor', linewidth=1)
+    _ = plt.text(8,.12,"(PCA_0, 8%)", fontsize=TICKS_SIZE)
+    _ = plt.text(115,.92,"(PCA_195, 90%)", fontsize=TICKS_SIZE)
+    _ = plt.grid()
     #_ = plt.savefig('images/Figure 7 — PCA Component Features and Retained Variance.jpg', format='jpeg', dpi=1200, bbox_inches='tight')
 
 def show_feats(coeffs, given_PCA, cols, feat_count=10):
@@ -109,10 +117,11 @@ def elbow_graph(kmax, inertias):
     x_range = [k for k in range(2, kmax)]
     _ = plt.plot(x_range, inertias)
     _ = plt.title('K-Means Elbow Graph', fontsize=LABEL_SIZE)
-    _ = plt.xlabel('Number of clusters', fontsize=LABEL_SIZE)
+    _ = plt.xlabel("Number of Clusters — 'k'", fontsize=LABEL_SIZE)
     _ = plt.xticks(x_range,fontsize=TICKS_SIZE)
     _ = plt.ylabel('Avg. Centroid Distance (Inertia)', fontsize=LABEL_SIZE)
     _ = plt.yticks(fontsize=TICKS_SIZE)
+    _ = plt.grid()
     #_ = plt.savefig('images/Figure 8 — K-Means Elbow Graph.jpg', format='jpeg', dpi=1200, bbox_inches='tight')
 
 def clusterings(col1, col2, tolerance, label1, label2):
@@ -177,29 +186,29 @@ def clusters_heatmap(ccoords, comps, shades):
              cutoff(Integer): Number of features per PCA Component to retrieve.
     Returns: None
     '''
-    f = plt.figure(figsize=(FIG_WIDTH, FIG_HEIGHT))
+    f = plt.figure(figsize=(.8*FIG_WIDTH, .6*FIG_HEIGHT))
     _ = plt.subplots_adjust(wspace=0, hspace=0)
     ax1 = f.add_subplot(411)
-    _ = sns.heatmap(ccoords.iloc[0:1,:comps], cmap = 'Blues', vmin=shades[0], vmax=shades[1])
+    _ = sns.heatmap(ccoords.iloc[0:1,:comps], cmap = 'Greens', vmin=shades[0], vmax=shades[1], cbar=False)
     _ = ax1.set(xticklabels=[])
-    _ = plt.yticks(fontsize=TICKS_SIZE)
+    _ = plt.yticks(fontsize=1.5*TICKS_SIZE)
     _ = ax1.tick_params(bottom=False)
     ax2 = f.add_subplot(412)
-    _ = sns.heatmap(ccoords.iloc[1:2,:comps], cmap = 'Blues', vmin=shades[2], vmax=shades[3])
+    _ = sns.heatmap(ccoords.iloc[1:2,:comps], cmap = 'Greens', vmin=shades[2], vmax=shades[3], cbar=False)
     _ = ax2.set(xticklabels=[])
-    _ = plt.yticks(fontsize=TICKS_SIZE)
+    _ = plt.yticks(fontsize=1.5*TICKS_SIZE)
     _ = ax2.tick_params(bottom=False)
     ax3 = f.add_subplot(413)
-    _ = sns.heatmap(ccoords.iloc[2:3,:comps], cmap = 'Blues', vmin=shades[4], vmax=shades[5])
+    _ = sns.heatmap(ccoords.iloc[2:3,:comps], cmap = 'Greens', vmin=shades[4], vmax=shades[5], cbar=False)
     _ = ax3.set(xticklabels=[])
-    _ = plt.yticks(fontsize=TICKS_SIZE)
+    _ = plt.yticks(fontsize=1.5*TICKS_SIZE)
     _ = ax3.tick_params(bottom=False)
     ax4 = f.add_subplot(414)
     _ = plt.xlabel(" ", fontsize=0)
-    _ = plt.xticks(fontsize=TICKS_SIZE)
-    _ = plt.yticks(fontsize=TICKS_SIZE)
-    _ = sns.heatmap(ccoords.iloc[3:4,:comps], cmap = 'Blues', vmin=shades[6], vmax=shades[7])
-    #_ = plt.savefig('images/Figure 10 — Cluster PCA Components Heatmap.jpg', format='jpeg', dpi=1200, bbox_inches='tight')
+    _ = plt.xticks(fontsize=1.5*TICKS_SIZE)
+    _ = plt.yticks(fontsize=1.5*TICKS_SIZE)
+    _ = sns.heatmap(ccoords.iloc[3:4,:comps], cmap = 'Greens', vmin=shades[6], vmax=shades[7], cbar=False)
+    _ = plt.savefig('images/Figure 10 — Cluster PCA Components Heatmap.jpg', format='jpeg', dpi=1200, bbox_inches='tight')
 
 def cluster_PCA_features(cluster_id, pcas, cc_coords, cols, cutoff=5):
     '''Produce the main features linked with the top PCA Components associated with a Cluster.
