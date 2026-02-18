@@ -2,11 +2,11 @@
 
 ## Table of Contents
 
- 1. [Motivation](https://github.com/bubekaro/MLE-Capstone#Motivation)
- 2. [Libraries](https://github.com/bubekaro/MLE-Capstone#Libraries)
- 3. [Files](https://github.com/bubekaro/MLE-Capstone#Files)
- 4. [Results](https://github.com/bubekaro/MLE-Capstone#Results)
- 5. [Acknowledgements](https://github.com/bubekaro/MLE-Capstone#Acknowledgements)
+ 1. [Motivation](https://github.com/bubekar0/MLE-Capstone#Motivation)
+ 2. [Libraries](https://github.com/bubekar0/MLE-Capstone#Libraries)
+ 3. [Files](https://github.com/bubekar0/MLE-Capstone#Files)
+ 4. [Results](https://github.com/bubekar0/MLE-Capstone#Results)
+ 5. [Acknowledgements](https://github.com/bubekar0/MLE-Capstone#Acknowledgements)
 
 ## Motivation
 The project was chosen for two reasons: First, it tackles a real-life problem, that of designing a targeted advertising campaign based on demographic data. Second, it combines several Machine Learning techniques, namely, dimensionality reduction, clustering, classification, and tuning. The combination of a task that can be easily generalized to a wide scope of applications, together with the multiplicity of moving parts involved, makes for a rich experience for someone who is getting started with Data Science in general, and Machine Learning in particular. The project also offers multiple challenges and opportunities to practice Data Exploration and Preprocessing. The amount of missing data, the nature of the missingness, the high level of correlated features, and the variety of outliers, makes for a truly rich experience in data wrangling.
